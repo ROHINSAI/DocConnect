@@ -3,8 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
     font-family: Outfit;
+}
+
+body {
+    @apply bg-slate-50 text-gray-800 dark:bg-gray-900 dark:text-white transition-colors duration-300;
 }
 
 ::-webkit-scrollbar{

@@ -20,8 +20,8 @@ const DoctorAppointments = () => {
 
       <p className='mb-3 text-lg font-medium'>All Appointments</p>
 
-      <div className='bg-white border rounded text-sm max-h-[80vh] overflow-y-scroll'>
-        <div className='max-sm:hidden grid grid-cols-[0.5fr_2fr_1fr_1fr_3fr_1fr_1fr] gap-1 py-3 px-6 border-b'>
+      <div className='bg-white border rounded text-sm max-h-[80vh] overflow-y-scroll dark:bg-gray-800 dark:border-gray-700 dark:text-gray-300'>
+        <div className='max-sm:hidden grid grid-cols-[0.5fr_2fr_1fr_1fr_3fr_1fr_1fr] gap-1 py-3 px-6 border-b dark:border-gray-700'>
           <p>#</p>
           <p>Patient</p>
           <p>Payment</p>
@@ -31,7 +31,7 @@ const DoctorAppointments = () => {
           <p>Action</p>
         </div>
         {appointments.map((item, index) => (
-          <div className='flex flex-wrap justify-between max-sm:gap-5 max-sm:text-base sm:grid grid-cols-[0.5fr_2fr_1fr_1fr_3fr_1fr_1fr] gap-1 items-center text-gray-500 py-3 px-6 border-b hover:bg-gray-50' key={index}>
+          <div className='flex flex-wrap justify-between max-sm:gap-5 max-sm:text-base sm:grid grid-cols-[0.5fr_2fr_1fr_1fr_3fr_1fr_1fr] gap-1 items-center text-gray-500 py-3 px-6 border-b hover:bg-gray-50 dark:hover:bg-gray-700 dark:text-gray-400 dark:border-gray-700' key={index}>
             <p className='max-sm:hidden'>{index}</p>
             <div className='flex items-center gap-2'>
               <img src={item.userData.image} className='w-8 rounded-full' alt="" /> <p>{item.userData.name}</p>
