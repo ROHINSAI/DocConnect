@@ -9,14 +9,14 @@ const Footer = () => {
         <div>
           <div className='flex items-center gap-2 mb-5'>
             <img className='w-10' src={assets.logo} alt="" />
-            <p className='text-xl font-bold text-gray-800'>DocConnect</p>
+            <p className='text-xl font-bold text-gray-800 dark:text-white'>DocConnect</p>
           </div>
-          <p className='w-full md:w-2/3 text-gray-600 leading-6'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          <p className='w-full md:w-2/3 text-gray-600 dark:text-gray-300 leading-6'>DocConnect is your trusted partner in managing healthcare needs. We bridge the gap between patients and trusted healthcare providers, making appointment booking seamless and efficient.</p>
         </div>
 
         <div>
-          <p className='text-xl font-medium mb-5'>COMPANY</p>
-          <ul className='flex flex-col gap-2 text-gray-600'>
+          <p className='text-xl font-medium mb-5 text-gray-800 dark:text-white'>COMPANY</p>
+          <ul className='flex flex-col gap-2 text-gray-600 dark:text-gray-300'>
             <li>Home</li>
             <li>About us</li>
             <li>Delivery</li>
@@ -25,18 +25,18 @@ const Footer = () => {
         </div>
 
         <div>
-          <p className='text-xl font-medium mb-5'>GET IN TOUCH</p>
-          <ul className='flex flex-col gap-2 text-gray-600'>
-            <li>+1-212-456-7890</li>
-            <li>greatstackdev@gmail.com</li>
+          <p className='text-xl font-medium mb-5 text-gray-800 dark:text-white'>GET IN TOUCH</p>
+          <ul className='flex flex-col gap-2 text-gray-600 dark:text-gray-300'>
+            <li>8019722677</li>
+            <li>rohinsai.b23@iiits.in</li>
           </ul>
         </div>
 
       </div>
 
       <div>
-        <hr />
-        <p className='py-5 text-sm text-center'>Copyright 2024 @ DocConnect.com - All Right Reserved.</p>
+        <hr className='dark:border-gray-700' />
+        <p className='py-5 text-sm text-center text-gray-600 dark:text-gray-400'>Copyright 2024 @ DocConnect.com - All Right Reserved.</p>
       </div>
 
     </div>

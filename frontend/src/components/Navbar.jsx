@@ -2,13 +2,16 @@ import React, { useContext, useState } from 'react'
 import { assets } from '../assets/assets'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
+import { ThemeContext } from '../context/ThemeContextDef';
 
+// Navbar Component
 const Navbar = () => {
 
   const navigate = useNavigate()
 
   const [showMenu, setShowMenu] = useState(false)
   const { token, setToken, userData } = useContext(AppContext)
+  const { theme, toggleTheme } = useContext(ThemeContext)
 
   const logout = () => {
     localStorage.removeItem('token')
@@ -17,41 +20,46 @@ const Navbar = () => {
   }
 
   return (
-    <div className='flex items-center justify-between text-sm py-4 mb-5 border-b border-b-[#ADADAD]'>
+    <div className='flex items-center justify-between text-sm py-4 mb-5 border-b border-b-[#ADADAD] dark:border-gray-700 dark:bg-gray-900 transition-colors duration-300'>
       <div onClick={() => navigate('/')} className='flex items-center gap-2 cursor-pointer'>
         <img className='w-10' src={assets.logo} alt="" />
-        <p className='text-xl font-bold text-primary'>DocConnect</p>
+        <p className='text-xl font-bold text-primary dark:text-white'>DocConnect</p>
       </div>
-      <ul className='md:flex items-start gap-5 font-medium hidden'>
+      <ul className='md:flex items-start gap-5 font-medium hidden text-gray-700 dark:text-gray-200'>
         <NavLink to='/' >
-          <li className='py-1'>HOME</li>
+          <li className='py-1 hover:text-black dark:hover:text-white'>HOME</li>
           <hr className='border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden' />
         </NavLink>
         <NavLink to='/doctors' >
-          <li className='py-1'>ALL DOCTORS</li>
+          <li className='py-1 hover:text-black dark:hover:text-white'>ALL DOCTORS</li>
           <hr className='border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden' />
         </NavLink>
         <NavLink to='/about' >
-          <li className='py-1'>ABOUT</li>
+          <li className='py-1 hover:text-black dark:hover:text-white'>ABOUT</li>
           <hr className='border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden' />
         </NavLink>
         <NavLink to='/contact' >
-          <li className='py-1'>CONTACT</li>
+          <li className='py-1 hover:text-black dark:hover:text-white'>CONTACT</li>
           <hr className='border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden' />
         </NavLink>
       </ul>
 
       <div className='flex items-center gap-4 '>
+        {/* Theme Toggle */}
+        <button onClick={toggleTheme} className='p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors'>
+            {theme === 'light' ? '🌙' : '☀️'}
+        </button>
+
         {
           token && userData
             ? <div className='flex items-center gap-2 cursor-pointer group relative'>
               <img className='w-8 rounded-full' src={userData.image} alt="" />
               <img className='w-2.5' src={assets.dropdown_icon} alt="" />
               <div className='absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 z-20 hidden group-hover:block'>
-                <div className='min-w-48 bg-gray-50 rounded flex flex-col gap-4 p-4'>
-                  <p onClick={() => navigate('/my-profile')} className='hover:text-black cursor-pointer'>My Profile</p>
-                  <p onClick={() => navigate('/my-appointments')} className='hover:text-black cursor-pointer'>My Appointments</p>
-                  <p onClick={logout} className='hover:text-black cursor-pointer'>Logout</p>
+                <div className='min-w-48 bg-gray-50 dark:bg-gray-800 dark:text-white rounded flex flex-col gap-4 p-4 shadow-lg'>
+                  <p onClick={() => navigate('/my-profile')} className='hover:text-black dark:hover:text-gray-300 cursor-pointer'>My Profile</p>
+                  <p onClick={() => navigate('/my-appointments')} className='hover:text-black dark:hover:text-gray-300 cursor-pointer'>My Appointments</p>
+                  <p onClick={logout} className='hover:text-black dark:hover:text-gray-300 cursor-pointer'>Logout</p>
                 </div>
               </div>
             </div>
@@ -60,15 +68,15 @@ const Navbar = () => {
         <img onClick={() => setShowMenu(true)} className='w-6 md:hidden' src={assets.menu_icon} alt="" />
 
         {/* ---- Mobile Menu ---- */}
-        <div className={`md:hidden ${showMenu ? 'fixed w-full' : 'h-0 w-0'} right-0 top-0 bottom-0 z-20 overflow-hidden bg-white transition-all`}>
+        <div className={`md:hidden ${showMenu ? 'fixed w-full' : 'h-0 w-0'} right-0 top-0 bottom-0 z-20 overflow-hidden bg-white dark:bg-gray-900 transition-all`}>
           <div className='flex items-center justify-between px-5 py-6'>
             <div className='flex items-center gap-2'>
               <img src={assets.logo} className='w-10' alt="" />
-              <p className='text-xl font-bold text-primary'>DocConnect</p>
+              <p className='text-xl font-bold text-primary dark:text-white'>DocConnect</p>
             </div>
             <img onClick={() => setShowMenu(false)} src={assets.cross_icon} className='w-7' alt="" />
           </div>
-          <ul className='flex flex-col items-center gap-2 mt-5 px-5 text-lg font-medium'>
+          <ul className='flex flex-col items-center gap-2 mt-5 px-5 text-lg font-medium text-gray-700 dark:text-gray-200'>
             <NavLink onClick={() => setShowMenu(false)} to='/'><p className='px-4 py-2 rounded full inline-block'>HOME</p></NavLink>
             <NavLink onClick={() => setShowMenu(false)} to='/doctors' ><p className='px-4 py-2 rounded full inline-block'>ALL DOCTORS</p></NavLink>
             <NavLink onClick={() => setShowMenu(false)} to='/about' ><p className='px-4 py-2 rounded full inline-block'>ABOUT</p></NavLink>

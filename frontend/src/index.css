@@ -8,6 +8,10 @@
     font-family: Outfit;
 }
 
+body {
+    @apply bg-white text-gray-800 dark:bg-gray-900 dark:text-white transition-colors duration-300;
+}
+
 .active hr {
     @apply block
 }
