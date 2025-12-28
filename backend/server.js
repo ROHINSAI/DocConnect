@@ -15,7 +15,7 @@ connectCloudinary()
 
 // middlewares
 app.use(express.json())
-const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174', 'https://doc-connect-blush.vercel.app']
+const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174', 'https://doc-connect-blush.vercel.app', 'https://doc-connect-admin-zeta.vercel.app']
 
 app.use(cors({
   origin: allowedOrigins,
